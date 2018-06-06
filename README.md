@@ -12,10 +12,14 @@ const promise = Promise.resolve({
   ]
 });
 
-const oldestUserName = await abet(promise).users.reduce((a, b) => {
-  if(a.age > b.age) return a;
-  return b;
-}).name;
+abet(promise)
+  .users
+  .reduce((a, b) => {
+    if(a.age > b.age) return a;
+    return b;
+  })
+  .name
+  .then(oldestUserName => console.log(oldestUserName)); // prints 'sally'
 ```
 
 ## Install
