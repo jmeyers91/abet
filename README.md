@@ -2,6 +2,12 @@
 
 Abet allows promises to be chained using the properties and methods of their results.
 
+## Install
+
+```
+npm install abet
+```
+
 ## Example
 
 ```
@@ -22,8 +28,8 @@ abet(promise)
   .then(oldestUserName => console.log(oldestUserName)); // prints 'sally'
 ```
 
-## Install
+## How it works
 
-```
-npm install abet
-```
+Abet relies on [ES6 Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to keep track of keys being accessed and methods being called. When `then` or `catch` is called on a wrapped promise, the result is intercepted and reduced using the keys and methods used on the wrapper.
+
+Take a look at the source. It's only 30 lines.
