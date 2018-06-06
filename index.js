@@ -1,3 +1,4 @@
+const identity = v => v;
 const last = array => array[array.length - 1];
 
 module.export = function abet(promise, steps=[], proxyTarget=()=>{}) {  
@@ -22,7 +23,7 @@ module.export = function abet(promise, steps=[], proxyTarget=()=>{}) {
     },
     
     apply(target, thisArg, args) {
-      const getMethod = last(steps);
+      const getMethod = last(steps) || identity;
       const newSteps = steps.slice(0, -1);
       newSteps.push(result => getMethod(result).apply(result, args));
       return abet(promise, newSteps, proxyTarget);
