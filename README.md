@@ -25,7 +25,22 @@ abet(promise)
     return b;
   })
   .name
-  .then(oldestUserName => console.log(oldestUserName)); // prints 'sally'
+  .then(name => console.log(name)); // prints 'sally'
+  
+```
+
+Or using `async/await`:
+
+```
+
+const { name } = await abet(promise)
+  .users
+  .reduce((a, b) => {
+    if(a.age > b.age) return a;
+    return b;
+  });
+  
+console.log(name); // prints 'sally'
 ```
 
 ## How it works
