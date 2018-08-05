@@ -1,6 +1,6 @@
 {
   "name": "abet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make promises lazily accessable.",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,10 @@
     "promises",
     "async"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jmeyers91/abet.git"
+  },
   "author": "James Meyers",
   "license": "ISC"
 }
